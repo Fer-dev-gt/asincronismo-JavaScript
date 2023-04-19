@@ -10,5 +10,8 @@
     "javascript"
   ],
   "author": "Fernando Orozco, github: fer-dev-gt",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
 }
