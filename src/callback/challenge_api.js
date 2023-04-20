@@ -22,16 +22,16 @@ function fetchData(urlApi, callback){                               // Recibe la
 
 
 
-// Segundo Paso, hacer el llamado a la función "fetchData"
-fetchData(`${API}/products`, function(error1, data1){                                 // El primer parámetro sera la variable "API" que se llamará "urlApi" y le concatenamos "/productos" en la función el segundo será nuestra función Callback
+// Segundo Paso, hacer el llamado a la función "fetchData", se hacen 3 peticiones con 3 datos distintos
+fetchData(`${API}/products`, function(error1, data1){                                 // El primer parámetro sera la variable "API" que se llamará "urlApi" y le concatenamos "/productos" en la función para acceder a la URL de la API deseada, el segundo será nuestra función Callback la cual es anónima y recibe 2 parámetros (el primero es la información de cualquier posible error, y el segundo es la "data" que es un "array" y que proviene de la respuesta de este método "JSON.parse(xhttp.responseText)")
   if(error1) return console.error(error1);                                            // Si existe un error detengo la ejecución e imprimo la información del error
-  fetchData(`${API}/products/${data1[0].id}`, function(error2, data2){                // Dentro de la función "fetchData" voy a volver a llamar a "fetchData" con otra logica consuecuente de obtener la información 
-    if(error2) return console.error(error2);
-    fetchData(`${API}/categories/${data2?.category?.id}`, function(error3, data3){
-      if(error3) return console.error(error3);
-      console.log(data1[0]);
-      console.log(data2.title);
-      console.log(data3.name);
+  fetchData(`${API}/products/${data1[0].id}`, function(error2, data2){                // Dentro de la función "fetchData" voy a volver a llamar a "fetchData" con otra logica consuecuente de obtener la información con el fin de acceder a un objeto puntual del arreglo data1, se envia como parámetros la url de la API apuntando al atributo del primer objeto de arreglo data1 y nuevamente una función anónima.
+    if(error2) return console.error(error2);                                          // Se valida si existe un error, en caso de que exista se detiene el proceso y se imprime el error
+    fetchData(`${API}/categories/${data2?.category?.id}`, function(error3, data3){    // Se invoca nuevamente la funcion "fetchData" con el fin de acceder a la categoria, se envían como parametros la url de la API con la concatenación de 'Categories' y el atributo Id de categoria del objeto data2 de la función anterior, tambien se hace uso de "Optional Chaining (usamos '?')" el cual hace una evalucación de las propiedades de un objeto y en vez de arrojar un error devuelve "undefined" en caso que la propiedad no exista o sea null. igual que las anteriores se envia una funcion anonima con 2 argumentos, un objeto Error y un objeto de datos
+      if(error3) return console.error(error3);                                        // Se valida si existe error, en caso de que exista se detiene el proceso y se imprime el error
+      console.log(data1[0]);                                                          // Se imprime el objeto en la posición 1 del "array" de los objetos obtenidos en el metodo invocado inicialmente (la variable "data1.[0]")
+      console.log(data2.title);                                                       // Se imprime el titulo del objeto que se consultó en la seguna invocación de la función (la variabel "data2.title")
+      console.log(data3.name);                                                        // Se imprime el nombre de la categoria a la que pertenece el objeto que se consultó en la tercera invocación del método. (la variable "data3.name")
     });
   });                                    
-});
+});                                                                                   // CONSEJO DE BUENAS PRÁCTICAS: Para evitar la mala práctica de un "Callback Hell", no es recomendable exceder de 3 "callback", para ello se utilizan las "promesas" o el "Async/Away".
