@@ -1,5 +1,5 @@
 // Ejemplo simple de "Promises"
-const promise = new Promise(function (resolve, reject){               // Guardamos el valor de una nueva instanciación de una Promase en una varibla, la promose tiene 2 funciones internas "resolve" y "reject"
+const promise = new Promise(function (resolve, reject){               // Guardamos el valor de una nueva instanciación de una Promise en una variable, la palabra "Promise" es el constructor de la promesa. Este constructor recibe un único parámetro que es una función, la cuál a su vez, recibe otros dos parámetros: resolve y reject.
   resolve('hey!');
 });
 
