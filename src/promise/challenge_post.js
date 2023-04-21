@@ -29,4 +29,4 @@ postData(`${API}/products`, dataNewProduct)                                   //
   .then(response => response.json())                                          // La respuesta de la función de arriba (de una Promesa) la tranformamos a formato JSON
   .then(data => console.log(data))                                            // Despues mostramos la información (data) que nos regreso esta Promesa
   .then(() =>                                                                 // Muesto un mensaje personalizado indicando que se realizó el proceso con éxito
-  console.log(`Felicidades, se agregó un nuevo producto (${dataNewProduct.title})🎉`))     
+  console.log(`Felicidades, se agregó un nuevo producto (${dataNewProduct.title})🎉`))      
