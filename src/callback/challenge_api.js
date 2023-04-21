@@ -1,5 +1,5 @@
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;    // Llamamos "xmlhttprequest" para imprementar los recursos npm y los guardamos en una variable (Importamos el módulo) y le implementamos el método ".XMLHttpRequest"
-const API = 'https://api.escuelajs.co/api/v1';                      // Hacemos el llamado a nuestra API y lo guardamos en una variable constante (en mayusculas) (Encontré la url en documentación de Plat  zi)
+const API = 'https://api.escuelajs.co/api/v1';                      // Hacemos el llamado a nuestra API y lo guardamos en una variable constante (en mayusculas) (Encontré la url en documentación de Platzi)
     
 function fetchData(urlApi, callback){                               // Recibe la "url" (el API que tenemos y el Callback (función anónima) para recibir la solicitud del llamado de esta API)(El parámetro ‘urlApi’ hace referencia a cualquier API con la cuál estemos trabajando, en este caso la FakeStore de Platzi.) para poder controlar el flujo de información de la API.
   let xhttp = new XMLHttpRequest();                                 // Para poder manipular las solicitudes que haremos para consultar los datos guardamos en una varible el objeto XMR y luego usaremos métodos sobre esa variable, (Utilizamos un Constructor vacío "new XMLHttpRequest()"), "xttps" es un objeto
