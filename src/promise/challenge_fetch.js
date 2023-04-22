@@ -2,6 +2,7 @@
 import fetch from 'node-fetch';                                       // Importamos la lógica necesaria para hacer la solicitud a la API
 const API = 'https://api.escuelajs.co/api/v1';                        // Hacemos el llamado a nuestra API y lo guardamos en una variable constante (en mayusculas) (Encontré la url en documentación de Platzi)
 
+// "fetch()" devuelve una "Promesa"
 function fetchData(urlApi) {                                          // Función que recibe la API que queremos llamar y retorna el llamdo consecuente de "fetch" (La cual por defecto es una Promesa y nos permite usar ".then() .catch() etc" y hacer multiples solicitudes)
   return fetch(urlApi);                                               // Invocamos la función que importamos para que realize el "fetch" (búsqueda)
 };
